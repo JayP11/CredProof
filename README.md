@@ -1,4 +1,5 @@
 CredProof – Decentralized Academic Credential Verification System
+
 Developed a smart contract on Ethereum using Solidity to issue, store, and verify academic certificates. Implemented role-based access control with OpenZeppelin to allow only verified universities to issue credentials. Each certificate is uniquely hashed and linked to IPFS for tamper-proof storage and verification. Enabled public and permissionless verification via cryptographic proofs, while allowing students to access their full certificate history on-chain.
 
 🛠 Tech Stack
