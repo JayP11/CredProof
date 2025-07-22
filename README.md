@@ -1,5 +1,5 @@
 CredProof – Decentralized Academic Credential Verification System
-CredProof is a Solidity-based smart contract system that allows universities to issue and verify tamper-proof academic certificates on the Ethereum blockchain. It includes full role-based access control and public certificate verification using IPFS and cryptographic hashing.
+Developed a smart contract on Ethereum using Solidity to issue, store, and verify academic certificates. Implemented role-based access control with OpenZeppelin to allow only verified universities to issue credentials. Each certificate is uniquely hashed and linked to IPFS for tamper-proof storage and verification. Enabled public and permissionless verification via cryptographic proofs, while allowing students to access their full certificate history on-chain.
 
 🛠 Tech Stack
 Solidity (v0.8.20)
