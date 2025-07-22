@@ -1,66 +1,72 @@
-## Foundry
+CredProof – Decentralized Academic Credential Verification System
+CredProof is a Solidity-based smart contract system that allows universities to issue and verify tamper-proof academic certificates on the Ethereum blockchain. It includes full role-based access control and public certificate verification using IPFS and cryptographic hashing.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+🛠 Tech Stack
+Solidity (v0.8.20)
 
-Foundry consists of:
+Foundry (for smart contract testing)
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+OpenZeppelin (AccessControl, Counters)
 
-## Documentation
+IPFS (for off-chain certificate storage)
 
-https://book.getfoundry.sh/
+📄 Features
+🎓 Only authorized universities can issue certificates
+🔐 Certificates are hashed and stored immutably on-chain
+📁 IPFS links store actual certificate documents off-chain
+🔎 Public certificate verification using on-chain hashes
+🧑 Students can retrieve all certificates issued to them
+🛡 Role-based access (Admin & University)
 
-## Usage
+🧪 Testing
+Unit tests are written using Foundry (forge-std) and cover:
+✅ Only universities can issue certificates
+📦 Certificate data storage and hash validation
+🔎 On-chain certificate verification (positive and negative cases)
+🧑‍🎓 Multiple certificates per student
+👮 Admin-only university role management
 
-### Build
+Run Tests
+bash
+Copy
+Edit
+forge test
+Example output:
 
-```shell
-$ forge build
-```
+scss
+Copy
+Edit
+[PASS] testOnlyUniversityCanIssueCertificate() (gas: 136489)
+[PASS] testVerifyCertificateSuccess() (gas: 34562)
+[PASS] testOnlyAdminCanAddUniversity() (gas: 89213)
+...
 
-### Test
+🔐 Roles
+DEFAULT_ADMIN_ROLE: Can add/revoke universities
 
-```shell
-$ forge test
-```
+UNIVERSITY_ROLE: Can issue certificates
 
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+🧾 Sample Certificate Structure
+solidity
+Copy
+Edit
+struct Certificate {
+    uint256 id;
+    string studentName;
+    address studentWallet;
+    string courseName;
+    string degree;
+    uint256 issueDate;
+    string ipfsHash;
+    bytes32 dataHash;
+}
+📦 Folder Structure
+bash
+Copy
+Edit
+├── src/
+│   └── Credentify.sol
+├── test/
+│   └── credentify.t.sol
+├── foundry.toml
+└── README.md
